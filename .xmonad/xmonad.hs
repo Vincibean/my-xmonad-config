@@ -20,7 +20,6 @@ main = do
     xmonad $ withUrgencyHook NoUrgencyHook
            $ defaultConfig {
                 terminal           = "urxvt",
-                modMask            = mod4Mask,
                 workspaces         = ["1:Chat", "2:Web", "3:Code", "4:Terms", "5", "6", "7", "8", "9:Music"],
                 normalBorderColor  = "#333333",
                 focusedBorderColor = "#3399cc",
