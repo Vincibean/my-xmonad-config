@@ -22,21 +22,6 @@ import qualified Data.Map        as M
 myWorkspaces = map show [1..9]
 
 ------------------------------------------------------------------------
--- Key bindings
---
--- modMask lets you specify which modkey you want to use. The default
--- is mod1Mask ("left alt"). You may also consider using mod3Mask
--- ("right alt"), which does not conflict with emacs keybindings. The
--- "windows key" is usually mod4Mask.
---
-myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList
-
-------------------------------------------------------------------------
--- Mouse bindings
---
-myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList
-
-------------------------------------------------------------------------
 -- Window rules
 -- Execute arbitrary actions and WindowSet manipulations when managing
 -- a new window. You can use this to, for example, always float a
@@ -65,8 +50,6 @@ main = do
                 normalBorderColor  = "#333333",
                 focusedBorderColor = "#3399cc",
                 manageHook         = myManageHook,
-                keys               = myKeys,
-                mouseBindings      = myMouseBindings,
                 layoutHook         = myLayout,
                 logHook            = dynamicLogWithPP $ xmobarPP { 
                                          ppOutput = hPutStrLn xmproc,
