@@ -37,6 +37,23 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList
 
 ------------------------------------------------------------------------
+-- Window rules
+-- Execute arbitrary actions and WindowSet manipulations when managing
+-- a new window. You can use this to, for example, always float a
+-- particular program, or have a client always appear on a particular
+-- workspace.
+--
+-- To find the property name associated with a program, use
+-- > xprop | grep WM_CLASS
+-- and click on the client you're interested in.
+--
+-- To match on the WM_NAME, you can use 'title' in the same way that
+-- 'className' and 'resource' are used below.
+--
+myManageHook :: ManageHook
+myManageHook = manageDocks <+> manageHook defaultConfig
+
+------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
 --
 main = do
@@ -63,8 +80,3 @@ myLayout = avoidStruts $ layoutHints (tall ||| Mirror tall ||| Full)
      nmaster = 1
      delta   = 3/100
      ratio   = 1/2
-
-myManageHook :: ManageHook
-myManageHook = composeAll
-    [ className =? "Pidgin"    --> doShift "1:Chat"
-    , className =? "Shiretoko" --> doShift "2:Web"]
