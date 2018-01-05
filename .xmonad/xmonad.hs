@@ -32,6 +32,11 @@ myWorkspaces = map show [1..9]
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList
 
 ------------------------------------------------------------------------
+-- Mouse bindings
+--
+myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList
+
+------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
 --
 main = do
@@ -51,14 +56,6 @@ main = do
                                          ppTitle = xmobarColor "green" "" . shorten 50
                                      }
     }
-
-myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
-    [ ((modMask, button1), (\w -> focus w >> mouseMoveWindow w
-                                          >> windows W.shiftMaster))
-    , ((modMask, button2), (\w -> focus w >> windows W.shiftMaster))
-    , ((modMask, button3), (\w -> focus w >> mouseResizeWindow w
-                                          >> windows W.shiftMaster))
-    ]
 
 myLayout = avoidStruts $ layoutHints (tall ||| Mirror tall ||| Full)
   where
