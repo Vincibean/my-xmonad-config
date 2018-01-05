@@ -15,12 +15,31 @@ import Data.Monoid
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+------------------------------------------------------------------------
+-- Workspaces
+-- The default number of workspaces (virtual screens) and their names.
+--
+myWorkspaces = map show [1..9]
+
+------------------------------------------------------------------------
+-- Key bindings
+--
+-- modMask lets you specify which modkey you want to use. The default
+-- is mod1Mask ("left alt"). You may also consider using mod3Mask
+-- ("right alt"), which does not conflict with emacs keybindings. The
+-- "windows key" is usually mod4Mask.
+--
+myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList
+
+------------------------------------------------------------------------
+-- Run xmonad with all the defaults we set up.
+--
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ withUrgencyHook NoUrgencyHook
            $ defaultConfig {
                 terminal           = "urxvt",
-                workspaces         = ["1:Chat", "2:Web", "3:Code", "4:Terms", "5", "6", "7", "8", "9:Music"],
+                workspaces         = myWorkspaces,
                 normalBorderColor  = "#333333",
                 focusedBorderColor = "#3399cc",
                 manageHook         = myManageHook,
@@ -32,8 +51,6 @@ main = do
                                          ppTitle = xmobarColor "green" "" . shorten 50
                                      }
     }
-
-myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList
 
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask, button1), (\w -> focus w >> mouseMoveWindow w
