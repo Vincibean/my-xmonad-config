@@ -27,7 +27,7 @@ myWorkspaces = map show [1..9]
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ withUrgencyHook NoUrgencyHook
-           $ defaultConfig {
+           $ def {
                 terminal           = "urxvt",
                 workspaces         = myWorkspaces,
                 normalBorderColor  = "#333333",
