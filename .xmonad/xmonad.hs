@@ -8,5 +8,5 @@ import System.IO
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad desktopConfig
-        { terminal    = "xterm"
+        { terminal    = "urxvt"
         }
