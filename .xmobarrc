@@ -14,7 +14,6 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
   , Run Memory ["-t","Mem: <usedratio>%"] 10
   , Run Com "~/.scripts/volume.sh" [] "vol" 1
   , Run Date "<fc=#93a1a1>%a %b %_d %Y %H:%M</fc>" "date" 10
-  , Run StdinReader
 ]
   , sepChar = "%"
   , alignSep = "}{"
