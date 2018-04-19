@@ -17,5 +17,5 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
 ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = " %cpu% | %memory% | %enp4s0% | %vol% | Moscow:%UUEE% | %date% "
+  , template = " }{ %cpu% | %memory% | %enp4s0% | %vol% | Moscow:%UUEE% | %date% "
 }
