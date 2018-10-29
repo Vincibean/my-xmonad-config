@@ -1,21 +1,24 @@
 Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
+  , borderColor = "black"
+  , border = NoBorder
   , bgColor = "#002b36"
   , fgColor = "#657b83"
-  , border = NoBorder
-  , borderColor = "black"
   , hideOnStart = False
   , persistent = True
   , allDesktops = True
-  , position = Top
   , lowerOnStart = True
-  , commands = [ Run Weather "UUEE" ["-t"," <tempC>C","-L","64","-H","77","--normal","#657b83","--high","#657b83","--low","#657b83"] 36000
-  , Run Network "enp4s0" ["-L","0","-H","32","--normal","#657b83","--high","#657b83"] 10
-  , Run Cpu ["-L","3","-H","50","--normal","#657b83","--high","#657b83"] 10
-  , Run Memory ["-t","Mem: <usedratio>%"] 10
-  , Run Com "~/.scripts/volume.sh" [] "vol" 1
-  , Run Date "<fc=#93a1a1>%a %b %_d %Y %H:%M</fc>" "date" 10
-]
+  , position = Top
+  , commands = [ Run Weather "CYVR" ["-t","<tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                  , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                  , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                  , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                  , Run Memory ["-t","Mem: <usedratio>%"] 10
+                  , Run Swap [] 10
+                  , Run Com "uname" ["-s","-r"] "" 36000
+                  , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                  , Run StdinReader
+                  ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = " }{ %cpu% | %memory% | %enp4s0% | %vol% | Moscow:%UUEE% | %date% "
+  , template = "%StdinReader% | %cpu% | %memory% * %swap% | %eth0% - %eth1% }{<fc=#ee9a00>%date%</fc> | %uname% | %CYVR% "
 }
