@@ -7,15 +7,11 @@ import XMonad.Util.Run(spawnPipe)
 import System.Exit
 import System.IO
 
-myWorkspaces = map show [0..9]
-
-myLogHook = dynamicLogWithPP $ xmobarPP
-
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad desktopConfig
-        { terminal    = "urxvt",
-          layoutHook  = avoidStruts $ layoutHook def,
-          logHook     = myLogHook,
-          manageHook  = manageDocks <+> manageHook def
+        { terminal   = "urxvt",
+          layoutHook = avoidStruts  $  layoutHook def,
+          logHook    = dynamicLogWithPP $ xmobarPP,
+          manageHook = manageDocks <+> manageHook def
         }
