@@ -11,7 +11,7 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad desktopConfig
         { terminal   = "urxvt",
-          manageHook = manageDocks <+> manageHook def,
           layoutHook = avoidStruts  $  layoutHook def,
           logHook    = dynamicLogWithPP $ xmobarPP
+          manageHook = manageDocks <+> manageHook def,
         }
