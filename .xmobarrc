@@ -1,13 +1,13 @@
 Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
-  , borderColor = "black"
-  , border = NoBorder
   , bgColor = "#002b36"
   , fgColor = "#657b83"
+  , border = NoBorder
+  , borderColor = "black"
   , hideOnStart = False
   , persistent = True
   , allDesktops = True
-  , lowerOnStart = True
   , position = Top
+  , lowerOnStart = True
   , commands = [ Run Weather "CYVR" ["-t","<tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
                   , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                   , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
