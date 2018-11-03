@@ -12,6 +12,6 @@ main = do
     xmonad desktopConfig
         { terminal   = "urxvt",
           layoutHook = avoidStruts  $  layoutHook def,
-          logHook    = dynamicLogWithPP $ xmobarPP
-          manageHook = manageDocks <+> manageHook def,
+          logHook    = dynamicLogWithPP $ xmobarPP,
+          manageHook = manageDocks <+> manageHook def
         }
