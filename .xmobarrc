@@ -15,8 +15,9 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
                   , Run Swap [] 10
                   , Run Com "uname" ["-s","-r"] "" 36000
                   , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                  , Run Battery ["-t", "<left>%", "-h", "green", "-n", "yell", "-l", "red"] 10
                   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }{ %date% | %uname% "
+  , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }{ %date% | %battery% | %uname% "
 }
