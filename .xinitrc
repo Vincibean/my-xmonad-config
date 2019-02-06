@@ -1,4 +1,5 @@
 #!/bin/sh
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -30,6 +31,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   done
   unset f
 fi
+
+# Adjust the display 
+sh ~/.screenlayout/alone.sh 
 
 # Set up an icon tray
 stalonetray &
