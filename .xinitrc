@@ -31,6 +31,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   unset f
 fi
 
+# Adjust the display 
+sh ~/.screenlayout/alone.sh 
+
 # Set up an icon tray
 stalonetray &
 
