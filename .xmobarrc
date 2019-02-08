@@ -12,12 +12,11 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
                   , Run Network "eth1" ["-L","0","-H","32"] 10
                   , Run Cpu ["-L","3"] 10
                   , Run Memory ["-t","Mem: <usedratio>%"] 10
-                  , Run Swap [] 10
                   , Run Com "uname" ["-s","-r"] "" 36000
                   , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                   , Run Battery ["-t", "<left>%"] 10
                   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }{ | %date% | %battery% | %uname% "
+  , template = "%cpu% | %memory% | %eth0% - %eth1% }{ | %date% | %battery% | %uname% "
 }
