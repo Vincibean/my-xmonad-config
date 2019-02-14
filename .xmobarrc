@@ -8,8 +8,7 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
   , allDesktops = True
   , position = Top
   , lowerOnStart = True
-  , commands = [ Run Network "eth0" ["-L","0","-H","32"] 10
-                  , Run Network "eth1" ["-L","0","-H","32"] 10
+  , commands = [ Run Network "wlp2s0" ["-L","0","-H","32"] 10
                   , Run Cpu ["-L","3"] 10
                   , Run Memory ["-t","Mem: <usedratio>%"] 10
                   , Run Com "uname" ["-s","-r"] "" 36000
@@ -18,5 +17,5 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
                   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%cpu% | %memory% | %eth0% - %eth1% }{ | %date% | %battery% | %uname% "
+  , template = "%cpu% | %memory% | %wlp2s0% }{ | %date% | %battery% | %uname% "
 }
