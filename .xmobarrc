@@ -14,8 +14,9 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
                   , Run Com "uname" ["-s","-r"] "" 36000
                   , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                   , Run Battery ["-t", "<left>%", "--Low", "15", "--low", "red"] 10
+                  , Run Volume "default" "Master" ["t", "<volume>%"] 10
                   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%cpu% | %memory% | %wlp2s0% }{ | %date% | %battery% | %uname% "
+  , template = "%cpu% | %memory% | %wlp2s0% }{ | %date% | %battery% | %default:Master% | %uname% "
 }
