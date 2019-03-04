@@ -9,14 +9,14 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
   , position = Top
   , lowerOnStart = True
   , commands = [ Run Network "wlp2s0" ["-L","0","-H","32"] 10
-                  , Run Cpu ["-L","3"] 10
-                  , Run Memory ["-t","Mem: <usedratio>%"] 10
+                  , Run MultiCpu ["-t","CPU: <vbar> <total>%"] 10
+                  , Run Memory ["-t","Mem: <usedvbar> <usedratio>%"] 10
                   , Run Com "uname" ["-s","-r"] "" 36000
                   , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                  , Run Battery ["-t", "<left>%", "--Low", "15", "--low", "red"] 10
-                  , Run Volume "default" "Master" ["t", "<volume>%"] 10
+                  , Run Battery ["-t", "Battery: <leftvbar> <left>%", "--Low", "15", "--low", "red"] 10
+                  , Run Volume "default" "Master" ["-t", "Vol: <volumevbar> <volume>%"] 10
                   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%cpu% | %memory% | %wlp2s0% }{ | %date% | %battery% | %default:Master% | %uname% "
+  , template = "%multicpu% | %memory% | %wlp2s0% }{ | %date% | %battery% | %default:Master% | %uname% "
 }
