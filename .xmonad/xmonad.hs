@@ -1,3 +1,5 @@
+import Graphics.X11.ExtraTypes.XF86
+
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -12,11 +14,13 @@ import System.IO
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ desktopConfig
-        { terminal    = "urxvt",
-          layoutHook  = avoidStruts  $  layoutHook def,
-          logHook     = dynamicLogWithPP $ xmobarPP,
-          startupHook = setWMName "LG3D",
-          manageHook  = manageDocks <+> manageHook def
+        {  terminal    = "urxvt"
+         , layoutHook  = avoidStruts  $  layoutHook def
+         , logHook     = dynamicLogWithPP $ xmobarPP
+         , startupHook = setWMName "LG3D"
+         , manageHook  = manageDocks <+> manageHook def
         } `additionalKeys`
-        [ ((mod1Mask .|. shiftMask, xK_z), spawn "slock")
+        [  ((mod1Mask .|. shiftMask, xK_z), spawn "slock")
+         , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2-")
+         , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2+")
         ]
