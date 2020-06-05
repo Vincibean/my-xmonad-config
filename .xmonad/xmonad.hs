@@ -14,7 +14,8 @@ import System.IO
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ desktopConfig
-        {  terminal    = "urxvt"
+        {  modMask = mod4Mask
+         , terminal    = "urxvt"
          , layoutHook  = avoidStruts  $  layoutHook def
          , logHook     = dynamicLogWithPP $ xmobarPP
          , startupHook = setWMName "LG3D"
