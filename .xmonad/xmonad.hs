@@ -16,12 +16,14 @@ main = do
     xmonad $ desktopConfig
         {  modMask = mod4Mask
          , terminal    = "urxvt"
+         , normalBorderColor  = "#586e75"
+         , focusedBorderColor = "#2aa198"
          , layoutHook  = avoidStruts  $  layoutHook def
          , logHook     = dynamicLogWithPP $ xmobarPP
          , startupHook = setWMName "LG3D"
          , manageHook  = manageDocks <+> manageHook def
         } `additionalKeys`
-        [  ((mod1Mask .|. shiftMask, xK_z), spawn "slock")
+        [  ((mod4Mask .|. shiftMask, xK_z), spawn "slock")
          , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2-")
          , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2+")
         ]
