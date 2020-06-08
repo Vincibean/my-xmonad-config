@@ -1,12 +1,13 @@
 import Graphics.X11.ExtraTypes.XF86
 
 import XMonad
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
-import XMonad.Config.Desktop
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.EZConfig (additionalKeys)
 
 import System.Exit
 import System.IO
@@ -18,7 +19,7 @@ main = do
          , terminal    = "urxvt"
          , normalBorderColor  = "#586e75"
          , focusedBorderColor = "#2aa198"
-         , layoutHook  = avoidStruts  $  layoutHook def
+         , layoutHook  = avoidStruts $ smartBorders $ layoutHook def
          , logHook     = dynamicLogWithPP $ xmobarPP
          , startupHook = setWMName "LG3D"
          , manageHook  = manageDocks <+> manageHook def
