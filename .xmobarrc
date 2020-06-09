@@ -8,8 +8,8 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
   , allDesktops = True
   , position = Top
   , lowerOnStart = True
-  , commands = [ Run Network "wlp2s0" ["-L","0","-H","32"] 10
-                  , Run MultiCpu ["-t","CPU: <vbar> <total>%"] 10
+  , commands = [ Run DynNetwork ["-L","0","-H","32"] 10
+                  , Run MultiCpu ["-t","CPU: <autovbar> <total>%"] 10
                   , Run Memory ["-t","Mem: <usedvbar> <usedratio>%"] 10
                   , Run Com "uname" ["-s","-r"] "" 36000
                   , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
@@ -18,5 +18,5 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
                   ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%multicpu% | %memory% | %wlp2s0% }{ | %date% | %battery% | %default:Master% | %uname% "
+  , template = "%multicpu% | %memory% | %dynnetwork% }{ | %date% | %battery% | %uname% "
 }
