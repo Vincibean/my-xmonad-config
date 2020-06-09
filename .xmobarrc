@@ -8,15 +8,14 @@ Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
   , allDesktops = True
   , position = Top
   , lowerOnStart = True
-  , commands = [ Run DynNetwork ["-L","0","-H","32"] 10
-                  , Run MultiCpu ["-t","CPU: <autovbar> <total>%"] 10
-                  , Run Memory ["-t","Mem: <usedvbar> <usedratio>%"] 10
-                  , Run Com "uname" ["-s","-r"] "" 36000
-                  , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                  , Run Battery ["-t", "Battery: <leftvbar> <left>%", "--Low", "15", "--low", "red"] 10
-                  , Run Volume "default" "Master" ["-t", "Vol: <volumevbar> <volume>%"] 10
-                  ]
+  , commands = [ Run DynNetwork ["-L","0","-H","32", "-w", "4", "-t", "In: <rx> KB | Out: <tx> KB"] 10
+               , Run MultiCpu ["-t","CPU: <total>%  <autovbar>"] 10
+               , Run Memory ["-t","Mem: <usedratio>%", "-w", "4"] 10
+               , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+               , Run Battery ["-t", "Battery: <leftvbar> <left>%", "--Low", "15", "--low", "red", "-w", "4"] 10
+               , Run Volume "default" "Master" ["-t", "Vol: <volumevbar> <volume>%"] 10
+               ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "%multicpu% | %memory% | %dynnetwork% }{ | %date% | %battery% | %uname% "
+  , template = "%multicpu% }{ | %dynnetwork% | %memory% | %date% | %battery%"
 }
