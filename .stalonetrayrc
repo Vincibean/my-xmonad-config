@@ -8,6 +8,7 @@ kludges force_icons_size
 grow_gravity NE
 icon_gravity NE
 icon_size 12
+slot_size 17
 sticky true
 #window_strut none
 window_type dock
