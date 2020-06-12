@@ -17,8 +17,8 @@ main = do
     xmonad $ desktopConfig
         {  modMask = mod4Mask
          , terminal    = "urxvt"
-         , normalBorderColor  = "#586e75"
-         , focusedBorderColor = "#2aa198"
+         , normalBorderColor  = "#707880"
+         , focusedBorderColor = "#c5c8c6"
          , layoutHook  = avoidStruts $ smartBorders $ layoutHook def
          , logHook     = dynamicLogWithPP $ xmobarPP
          , startupHook = setWMName "LG3D"

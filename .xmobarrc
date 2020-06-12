@@ -1,6 +1,6 @@
-Config { font = "xft:inconsolatalgc:pixelsize=12:antialias=true"
-  , bgColor = "#002b36"
-  , fgColor = "#657b83"
+Config { font = "xft:Iosevka Fixed:pixelsize=12:antialias=true"
+  , bgColor = "#1d1f21"
+  , fgColor = "#c5c8c6"
   , border = NoBorder
   , borderColor = "black"
   , hideOnStart = False
