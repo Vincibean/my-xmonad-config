@@ -3,3 +3,6 @@
 *.boldFont: xft:Iosevka Fixed:style=Bold:size=11
 *.italicFont: xft:Iosevka Fixed:style=Italic:size=11
 *.boldItalicFont: xft:Iosevka Fixed:style=Bold Italic:size=11
+
+! -- Moves the scrollbar on the right -- !
+URxvt.scrollBar_right: true
